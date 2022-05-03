@@ -5,12 +5,11 @@
 class Dog:
     # Class Variable
     animal = 'dog'
-    breed = None
-    color = None
 
     # The init method or constructor
     def __init__(self, breed):
         # Instance Variable
+        self.color = None
         self.breed = breed
 
     # Adds an instance variable
