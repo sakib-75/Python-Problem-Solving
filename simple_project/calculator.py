@@ -1,38 +1,37 @@
-# Calculator
+import functools
+
 
 def calculate_addition():
-    print("Addition")
     number = float(input("Enter the number: "))
     count = 0  # Total number enter
     addition = 0
     while number != 0:
         addition += number
         count += 1
-        number = float(input("Enter another number (0 to calculate): "))
+        number = float(input("Enter another number: "))
     return [addition, count]
 
 
 def calculate_subtraction():
-    print("Subtraction")
-    number = float(input("Enter the number: "))
-    count = 0  # Total number enter
-    subtraction = 0
-    while number != 0:
-        subtraction = subtraction - number
-        count += 1
-        number = float(input("Enter another number (0 to calculate): "))
-    return [subtraction, count]
+    number_list = []
+    value = float(input("Enter the number: "))
+    number_list.append(value)
+    while value != 0:
+        value = float(input("Enter another number: "))
+        number_list.append(value)
+
+    subtraction = functools.reduce(lambda num1, num2: num1 - num2, number_list)
+    return [subtraction, len(number_list)]
 
 
 def calculate_multiplication():
-    print("Multiplication")
     number = float(input("Enter the number: "))
     count = 0  # Total number enter
     multiplication = 1
     while number != 0:
         multiplication = multiplication * number
         count += 1
-        number = float(input("Enter another number (0 to calculate): "))
+        number = float(input("Enter another number: "))
     return [multiplication, count]
 
 
@@ -46,7 +45,6 @@ def calculate_average():
 
 while True:
     ans = []
-    print(" My first python program!")
     print(" Simple Calculator in python by Malik Umer Farooq")
     print(" Enter '1' for addition")
     print(" Enter '2' for substraction")
@@ -60,19 +58,19 @@ while True:
 
         if option == '1':
             ans = calculate_addition()
-            print("Ans = ", ans[0], " total inputs = ", ans[1])
+            print("Addition = ", ans[0], " total inputs = ", ans[1])
 
         elif option == '2':
             ans = calculate_subtraction()
-            print("Ans = ", ans[0], " total inputs = ", ans[1])
+            print("Subtraction = ", ans[0], " total inputs = ", ans[1])
 
         elif option == '3':
             ans = calculate_multiplication()
-            print("Ans = ", ans[0], " total inputs = ", ans[1])
+            print("Multiplication = ", ans[0], " total inputs = ", ans[1])
 
         elif option == '4':
             ans = calculate_average()
-            print("Ans = ", ans[0], " total inputs = ", ans[1])
+            print("Average = ", ans[0], " total inputs = ", ans[1])
 
         else:
             print("Invalid option")
