@@ -15,12 +15,15 @@ def calculate_addition():
 def calculate_subtraction():
     number_list = []
     value = float(input("Enter the number: "))
-    number_list.append(value)
+    if value != 0:
+        number_list.append(value)
     while value != 0:
         value = float(input("Enter another number: "))
-        number_list.append(value)
+        if value != 0:
+            number_list.append(value)
 
     subtraction = functools.reduce(lambda num1, num2: num1 - num2, number_list)
+    print(number_list)
     return [subtraction, len(number_list)]
 
 
@@ -54,8 +57,10 @@ while True:
 
     option = input("Enter: ")
 
-    if option != 'q':
-
+    if option == 'q':
+        print("Quit...")
+        break
+    else:
         if option == '1':
             ans = calculate_addition()
             print("Addition = ", ans[0], " total inputs = ", ans[1])
@@ -75,6 +80,3 @@ while True:
         else:
             print("Invalid option")
 
-    else:
-        print("Quit...")
-        break
