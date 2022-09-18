@@ -1,13 +1,11 @@
 import random
-import os
 import re
 
-os.system('cls' if os.name == 'nt' else 'clear')
 
 while True:
     print("\n")
     print("Rock, Paper, Scissors - Shoot!")
-    print(" Enter 'q' for quit")
+    print("Enter 'q' for quit")
 
     user_choice = input("Choose your weapon [r]ock, [p]aper, or [s]cissors: ")
 
@@ -17,7 +15,7 @@ while True:
     else:
 
         if not re.match("[RrPpSs]", user_choice):
-            print("Please choose a letter [[R/r] or [P/p] or []S/s]")
+            print("Please choose a letter [R/r] or [P/p] or [S/s]")
             continue
 
         print("I choose: " + user_choice)
