@@ -5,7 +5,7 @@ def smallest_time():
     """
         This method return smallest time from a list of given time in a day
     """
-    all_visit_time = ['12:30 PM', '1:22 AM', '3:04 AM']
+    all_visit_time = ['3:36 AM', '12:35 PM', '1:22 PM', '1:03 AM', '3:04 PM', '2:17 AM', '1:55 AM']
     am_12h_time = []
     am_time = []
     pm_12h_time = []
@@ -44,7 +44,7 @@ def smallest_time():
         elif time1_hour < time2_hour:
             return time1
         else:
-            return
+            return time2
 
     if len(am_12h_time) > 0:
         return smallest_12h_time(am_12h_time, 'AM')
