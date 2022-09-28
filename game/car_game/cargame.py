@@ -27,8 +27,6 @@ pygame.display.update()
 
 # load player vehicle
 car = pygame.image.load("car.png")
-# resize image
-# car = pygame.transform.scale(car, (250, 250))
 car_loc = car.get_rect()
 car_loc.center = right_lane, height * 0.8
 
@@ -75,6 +73,7 @@ while running:
             if event.key in [K_d, K_RIGHT]:
                 car_loc = car_loc.move([int(road_w / 2), 0])
 
+    # pygame.draw.rect(window, color, (x, y, width, height))
     # draw road
     pygame.draw.rect(screen, (50, 50, 50), (width / 2 - road_w / 2, 0, road_w, height))
     # draw centre line
