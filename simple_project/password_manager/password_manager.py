@@ -11,17 +11,18 @@ def view():
             data = line.rstrip()
             key, user, passw = data.split('|')
             fernet = Fernet(key.encode())
+            decrypt_user = fernet.decrypt(user.encode()).decode()
             decrypt_pass = fernet.decrypt(passw.encode()).decode()
-            print(i + 1, 'Username: ', user, ',', 'Password: ', decrypt_pass)
+            print(i + 1, 'Username:', decrypt_user, ',', 'Password:', decrypt_pass)
 
 
 def add():
     username = input('Username: ')
     password = input('Password: ')
-    encrypt_pass = fernet.encrypt(password.encode()).decode()
-
+    encrypt_username = fernet.encrypt(username.encode()).decode()
+    encrypt_password = fernet.encrypt(password.encode()).decode()
     with open('passwords.txt', 'a') as file:
-        file.write(key.decode() + '|' + username + '|' + encrypt_pass + '\n')
+        file.write(key.decode() + '|' + encrypt_username + '|' + encrypt_password + '\n')
 
 
 while True:
