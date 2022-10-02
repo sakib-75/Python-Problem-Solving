@@ -1,8 +1,5 @@
 from cryptography.fernet import Fernet
 
-key = Fernet.generate_key()
-fernet = Fernet(key)
-
 
 def view():
     print('\nView existing password')
@@ -19,6 +16,8 @@ def view():
 def add():
     username = input('Username: ')
     password = input('Password: ')
+    key = Fernet.generate_key()
+    fernet = Fernet(key)
     encrypt_username = fernet.encrypt(username.encode()).decode()
     encrypt_password = fernet.encrypt(password.encode()).decode()
     with open('passwords.txt', 'a') as file:
