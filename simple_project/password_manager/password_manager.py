@@ -1,6 +1,10 @@
 from cryptography.fernet import Fernet
 
 
+# encode() = string ---> byte
+# decode() = byte ---> string
+
+
 def view_password():
     with open('passwords.txt', 'r') as file:
         lines = file.readlines()
