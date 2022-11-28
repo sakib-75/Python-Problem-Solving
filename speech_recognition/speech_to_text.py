@@ -25,3 +25,21 @@ with sr.Microphone() as source:
     # write text
     with open("recorded_text.txt", "a") as file:
         file.write(converted_text + "\n")
+
+
+    def word_count(string):
+        words = string.lower().split(" ")
+        count = dict()
+
+        for word in words:
+            if word in count:
+                count[word] += 1
+            else:
+                count[word] = 1
+
+        print("Total word:", len(words))
+        for key, value in count.items():
+            print(key, ":", value)
+
+
+    word_count(converted_text)
