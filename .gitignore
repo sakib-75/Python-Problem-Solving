@@ -4,6 +4,7 @@
 /target/
 
 *.txt
+*.wav
 
 ### Eclipse ###
 .metadata
